@@ -1,4 +1,4 @@
-package main.java.ru.example.vacationcalculator.model;
+package ru.example.vacationcalculator.model;
 
 public class VacationResponse {
     
