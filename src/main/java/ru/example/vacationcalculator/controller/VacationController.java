@@ -22,7 +22,8 @@ public class VacationController {
         @RequestParam int vacationDays
     ) {
         double result = vacationCalculatorService.calculateVacationPay(avgSalary, vacationDays);
-        return new VacationResponse(result);
+        double roundedResult = Math.round(result*100)/100.0;
+        return new VacationResponse(roundedResult);
     }   
 
 }
