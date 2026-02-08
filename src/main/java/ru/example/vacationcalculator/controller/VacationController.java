@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.example.vacationcalculator.service.VacationCalculatorService;
+import ru.example.vacationcalculator.model.VacationResponse;
 
 
 @RestController
@@ -16,11 +17,13 @@ public class VacationController {
     }
     
     @GetMapping("/calculate")
-    public double calculate(
+    public VacationResponse calculate(
         @RequestParam double avgSalary,
         @RequestParam int vacationDays
     ) {
-        return vacationCalculatorService.calculateVacationPay(avgSalary, vacationDays);
+        double result = vacationCalculatorService.calculateVacationPay(avgSalary, vacationDays);
+        return new VacationResponse(result);
     }   
 
 }
+
