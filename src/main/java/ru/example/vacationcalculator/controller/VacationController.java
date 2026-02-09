@@ -21,6 +21,13 @@ public class VacationController {
         @RequestParam double avgSalary,
         @RequestParam int vacationDays
     ) {
+        if (avgSalary <= 0){
+            throw new IllegalArgumentException("Avg. salary must be over 0");
+        }
+        if (vacationDays <= 0){
+            throw new IllegalArgumentException("Vacation days can't be less or equal to 0");
+        }
+
         double result = vacationCalculatorService.calculateVacationPay(avgSalary, vacationDays);
         double roundedResult = Math.round(result*100)/100.0;
         return new VacationResponse(roundedResult);
