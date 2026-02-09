@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Результат</title>
+</head>
+<body>
+
+<p>
+    Сумма отпускных на
+    <b th:text="${vacationRequest.vacationDays}"></b>
+    дня со средним доходом
+    <b th:text="${vacationRequest.avgSalary}"></b>
+    равна
+    <b th:text="${vacationPay}"></b>
+</p>
+
+<a href="/">Вернуться назад</a>
+
+</body>
+</html>
